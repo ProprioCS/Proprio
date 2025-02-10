@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bringing AI to NetSuite">
+    <title>Proprio Cloud Solutions</title>
+    
+    <!-- Load Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Custom Properties for Theme */
+        :root {
+            --color-primary: #C24F48;
+            --color-text: #000000;
+            --color-text-light: #666666;
+            --color-background: #FFFFFF;
+            --color-border: #E3E3E3;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            --container-width: 75rem;
+            --container-padding: clamp(1rem, 5vw, 6rem);
+            
+            --font-size-base: clamp(1rem, 1.5vw, 1.125rem);
+            --font-size-h1: clamp(2.5rem, 5vw, 4.5rem);
+            --font-size-h2: clamp(2rem, 4vw, 3.5rem);
+            --font-size-h3: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            color: var(--color-text);
+            background-color: var(--color-background);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 { font-size: var(--font-size-h1); }
+        h2 { font-size: var(--font-size-h2); }
+        h3 { font-size: var(--font-size-h3); }
+
+        p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        /* Components */
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 1.25rem;
+            font-weight: 500;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.025);
+            opacity: 0.9;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(143,143,143,0.1), rgba(143,143,143,0.1));
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .feature-card {
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-border);
+            border-radius: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            margin: var(--spacing-md) 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        th {
+            font-weight: 600;
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+
+        /* Dark Sections */
+        .section-dark {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            :root {
+                --container-padding: 1.5rem;
+            }
+
+            .grid {
+                gap: var(--spacing-md);
+            }
+
+            .section {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the propriocloudsolutions logo -->
+    <header>
+        <img src="images/propriocloudsolutions_logo.png" alt="Proprio Cloud Solutions Logo">
+    </header>
+    
+    <header class="hero">
+        <div class="container">
+            <h1 class="animate-fade-up">Proprio Cloud Solutions</h1>
+            <p class="animate-fade-up" style="animation-delay: 0.2s">Bringing AI to the NetSuite Ecosphere</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="grid">
+                    <div>
+                        <h2>Bringing AI to the NetSuite Ecosphere</h2>
+                        <p>We've always thought there were better ways to approach solutions in NetSuite. That's why we collected the sharpest NetSuite minds we've met to build a software company we ourselves would be proud to partner with.</p>
+                    </div>
+                    <div>
+                        <h3>Long time Customers, Long time Experts</h3>
+                        <a href="#contact" class="button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark">
+            <div class="container text-center">
+                <h2>View Software Demos</h2>
+                <a href="#demos" class="button mt-lg">Video Library</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Current Projects</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RFP Contract Analysis</td>
+                                <td>AI reviews furniture RFPs and contracts to extract key requirements, deadlines, and compliance needs automatically</td>
+                            </tr>
+                            <tr>
+                                <td>AI Conversational Chatbot</td>
+                                <td>Digital assistant helps dealer staff navigate Orion/NetSuite features and answers questions about daily processes</td>
+                            </tr>
+                            <tr>
+                                <td>Resource Allocation Assistant</td>
+                                <td>AI tool optimizes workload distribution among designers, sales teams, and project managers based on capacity and skills</td>
+                            </tr>
+                            <tr>
+                                <td>Field Service AI Assistant</td>
+                                <td>Guides installers through site surveys using AI to identify potential installation issues from photos</td>
+                            </tr>
+                            <tr>
+                                <td>Design Double Check</td>
+                                <td>AI reviews furniture specs and layouts to catch errors before order placement</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="grid">
+                    <div>
+                        <h2>Choose Proprio</h2>
+                        <p>Learn how Proprio can supercharge your business, cut costs and increase margin</p>
+                    </div>
+                    <div>
+                        <a href="#contact" class="button">Get a Demo Today!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="section" style="background-color: #f5f5f5;">
+        <div class="container text-center">
+            <p>&copy; 2025 Proprio Cloud Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
