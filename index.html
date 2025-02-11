@@ -106,8 +106,21 @@
             min-height: 80vh;
             display: flex;
             align-items: center;
-            background: url('img/setting.png') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('img/officehero.jpg') no-repeat center center;
             background-size: cover;
+            position: relative;
+        }
+
+        .hero-content {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1,
+        .hero p {
+            color: white;
+            margin-bottom: var(--spacing-sm);
         }
 
         .feature-grid {
@@ -190,6 +203,19 @@
             .section {
                 padding: var(--spacing-lg) 0;
             }
+
+            .hero {
+                min-height: 60vh;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: calc(var(--font-size-h1) * 0.8);
+            }
+
+            .hero p {
+                font-size: calc(var(--font-size-base) * 1.1);
+            }
         }
     </style>
 </head>
@@ -201,8 +227,10 @@
     
     <header class="hero">
         <div class="container">
-            <h1 class="animate-fade-up">Proprio Cloud Solutions</h1>
-            <p class="animate-fade-up" style="animation-delay: 0.2s">Bringing AI to the NetSuite Ecosphere</p>
+            <div class="hero-content">
+                <h1 class="animate-fade-up">Proprio Cloud Solutions</h1>
+                <p class="animate-fade-up" style="animation-delay: 0.2s">Bringing AI to the NetSuite Ecosphere</p>
+            </div>
         </div>
     </header>
 
