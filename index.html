@@ -220,18 +220,20 @@
 
         /* Add these styles to your CSS */
         header img {
-            max-height: 60px;
+            max-height: 40px;
             width: auto;
-            padding: 1rem;
+            padding: 0.75rem;
             position: absolute;
             top: 0;
             left: 0;
             z-index: 10;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         @media (max-width: 768px) {
             header img {
-                max-height: 40px;
+                max-height: 30px;
             }
         }
     </style>
