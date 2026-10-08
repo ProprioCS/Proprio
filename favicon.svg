@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Proprio Cloud Solutions</title>
+  <rect width="64" height="64" rx="12" fill="#FFFFFF"/>
+  <path fill="#C24F48" fill-rule="evenodd" d="M12 13h19c12 0 19 7 19 17s-7 17-19 17h-9v9H12V13zm10 10v14h9c6 0 9-2 9-7s-3-7-9-7h-9z"/>
+  <path d="m37 19 7 7 12-15" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m37 19 7 7 12-15" fill="none" stroke="#3D6FB4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
