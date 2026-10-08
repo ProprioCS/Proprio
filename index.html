@@ -142,7 +142,13 @@
         .nav.scrolled .nav-logo img { filter: none; }
 
         /* Mobile nav toggle */
-        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.625rem; min-width: 44px; min-height: 44px; }
+        .nav-toggle:focus-visible { outline: 2px solid var(--color-blue-light); outline-offset: 4px; }
+        .nav.menu-open { background: var(--color-navy); }
+        .nav.menu-open .nav-toggle span { background: white; }
+        .nav.menu-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+        .nav.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
         .nav-toggle span { display: block; width: 24px; height: 2px; background: white; margin: 5px 0; transition: all 0.3s; }
         .nav.scrolled .nav-toggle span { background: var(--color-text); }
 
@@ -621,6 +627,24 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .nav-toggle { display: block; }
+            .nav-inner { flex-wrap: wrap; }
+            .nav-logo { order: 0; }
+            .nav-toggle { order: 1; }
+            .nav-links { order: 2; width: 100%; }
+            .nav.menu-open .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.25rem;
+                margin-top: 1rem;
+                max-height: calc(100dvh - 100px);
+                overflow-y: auto;
+            }
+            .nav.menu-open .nav-links a { display: block; color: white; padding: 0.75rem 1rem; }
+            .nav.menu-open .nav-links a:focus-visible { outline: 2px solid white; outline-offset: -2px; }
+            .nav.menu-open .nav-links a:hover { background: var(--color-navy-light); }
+            .nav.menu-open .nav-links .btn-primary:hover { background: var(--color-red-hover); }
+            section[id] { scroll-margin-top: 5rem; }
 
             .hero { min-height: 90vh; }
             .hero-content { text-align: center; padding-top: 5rem; }
@@ -661,15 +685,15 @@
                 <a href="#" class="nav-logo">
                     <img src="img/ProprioCloudSolutions.png" alt="Proprio Cloud Solutions">
                 </a>
-                <ul class="nav-links">
+                <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="nav-links" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#modules">Modules</a></li>
                     <li><a href="#why">About</a></li>
                     <li><a href="#contact" class="btn btn-primary nav-cta">Request a Demo</a></li>
                 </ul>
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <span></span><span></span><span></span>
-                </button>
             </div>
         </div>
     </nav>
@@ -1035,6 +1059,35 @@
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         });
+
+        // Mobile navigation disclosure
+        const navToggle = nav.querySelector('.nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const mobileNav = window.matchMedia('(max-width: 768px)');
+
+        function setMenuOpen(open, restoreFocus = false) {
+            nav.classList.toggle('menu-open', open);
+            navToggle.setAttribute('aria-expanded', String(open));
+            navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+            if (restoreFocus) navToggle.focus();
+        }
+
+        navToggle.addEventListener('click', () => {
+            setMenuOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+        });
+        navLinks.addEventListener('click', (event) => {
+            if (event.target.closest('a')) setMenuOpen(false);
+        });
+        nav.querySelector('.nav-logo').addEventListener('click', () => setMenuOpen(false));
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+                setMenuOpen(false, true);
+            }
+        });
+        document.addEventListener('click', (event) => {
+            if (!nav.contains(event.target)) setMenuOpen(false);
+        });
+        mobileNav.addEventListener('change', () => setMenuOpen(false));
 
         // Intersection Observer for fade-up animations
         const observer = new IntersectionObserver((entries) => {
